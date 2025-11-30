@@ -1,0 +1,23 @@
+// Colors
+// Primary
+$grayish-blue: hsl(237, 18%, 59%);
+$soft-red: hsl(345, 95%, 68%);
+
+// Neutral
+$white: hsl(0, 0%, 100%);
+$dark-desaturated-blue: hsl(236, 21%, 26%);
+$very-dark-blue: hsl(235, 16%, 14%);
+$very-dark-mostly-black-blue: hsl(234, 17%, 12%);
+
+// Typography
+$font-family: 'Red Hat Text', sans-serif;
+$font-weight-bold: 700;
+$font-size-base: 14px;
+
+// Breakpoints (Desktop-first approach)
+$breakpoint-tablet: 768px;
+$breakpoint-mobile: 375px;
+
+// Design widths
+$desktop-width: 1440px;
+$mobile-width: 375px;

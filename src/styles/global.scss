@@ -1,0 +1,38 @@
+@import './variables';
+
+// Reset and Base Styles
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: $font-size-base;
+}
+
+body {
+  font-family: $font-family;
+  font-weight: $font-weight-bold;
+  background-color: $very-dark-mostly-black-blue;
+  background-image: url('/src/images/bg-stars.svg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: $white;
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+// Mixins for responsive design (Desktop-first)
+@mixin tablet {
+  @media (max-width: $breakpoint-tablet) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (max-width: $breakpoint-mobile) {
+    @content;
+  }
+}
