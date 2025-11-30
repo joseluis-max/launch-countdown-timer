@@ -1,0 +1,25 @@
+{
+  "name": "launch-countdown-timer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joseluis-max/launch-countdown-timer.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joseluis-max/launch-countdown-timer/issues"
+  },
+  "homepage": "https://github.com/joseluis-max/launch-countdown-timer#readme",
+  "dependencies": {
+    "astro": "^5.16.3",
+    "sass": "^1.94.2"
+  }
+}
