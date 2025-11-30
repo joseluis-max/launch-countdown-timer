@@ -1,0 +1,156 @@
+---
+import '../styles/global.scss';
+import CountdownCard from '../components/CountdownCard.astro';
+import SocialIcon from '../components/SocialIcon.astro';
+import iconFacebook from '../images/icon-facebook.svg';
+import iconPinterest from '../images/icon-pinterest.svg';
+import iconInstagram from '../images/icon-instagram.svg';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@700&display=swap" rel="stylesheet" />
+    <title>Launch Countdown Timer</title>
+  </head>
+  <body>
+    <main class="container">
+      <!-- Section 1: Title -->
+      <h1 class="title">WE'RE LAUNCHING SOON</h1>
+
+      <!-- Section 2: Countdown Timer -->
+      <div class="countdown">
+        <CountdownCard unit="days" label="DAYS" />
+        <CountdownCard unit="hours" label="HOURS" />
+        <CountdownCard unit="minutes" label="MINUTES" />
+        <CountdownCard unit="seconds" label="SECONDS" />
+      </div>
+
+      <!-- Section 3: Footer with Social Icons -->
+      <footer class="footer">
+        <div class="social-icons">
+          <SocialIcon href="#" label="Facebook" icon={iconFacebook} alt="Facebook" />
+          <SocialIcon href="#" label="Pinterest" icon={iconPinterest} alt="Pinterest" />
+          <SocialIcon href="#" label="Instagram" icon={iconInstagram} alt="Instagram" />
+        </div>
+      </footer>
+    </main>
+  </body>
+</html>
+
+<script>
+  import { CountdownTimer } from '../utils/countdown';
+
+  // Set the countdown target date (14 days from now)
+  const countDownDate = new Date().getTime() + (14 * 24 * 60 * 60 * 1000);
+
+  // Create and start countdown timer
+  const timer = new CountdownTimer(countDownDate);
+  timer.start();
+</script>
+
+<style lang="scss">
+  @import '../styles/variables';
+
+  .container {
+    margin: 0 auto;
+    padding: 2rem;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 200px;
+      background-image: url('/src/images/pattern-hills.svg');
+      background-size: 100% 150px;
+      background-position: bottom;
+      background-repeat: no-repeat;
+      z-index: 1;
+    }
+
+    // Tablet styles
+    @media (max-width: $breakpoint-tablet) {
+      padding: 1.5rem;
+
+      &::after {
+        height: 150px;
+      }
+    }
+
+    // Mobile styles
+    @media (max-width: $breakpoint-mobile) {
+      padding: 1rem;
+
+      &::after {
+        height: 100px;
+      }
+    }
+  }
+
+  .title {
+    color: $white;
+    font-size: 1.5rem;
+    text-align: center;
+    letter-spacing: 0.4rem;
+    font-weight: $font-weight-bold;
+    margin-top: 8rem;
+    z-index: 2;
+
+    @media (max-width: $breakpoint-tablet) {
+      font-size: 1.25rem;
+      margin-top: 6rem;
+    }
+
+    @media (max-width: $breakpoint-mobile) {
+      font-size: 1rem;
+      letter-spacing: 0.3rem;
+      margin-top: 4rem;
+    }
+  }
+
+  .countdown {
+    display: flex;
+    gap: 2rem;
+    z-index: 2;
+    margin-bottom: 2rem;
+
+    @media (max-width: $breakpoint-tablet) {
+      gap: 1.5rem;
+    }
+
+    @media (max-width: $breakpoint-mobile) {
+      gap: 1rem;
+    }
+  }
+
+  .footer {
+    z-index: 2;
+    margin-bottom: 3rem;
+
+    @media (max-width: $breakpoint-mobile) {
+      margin-bottom: 2rem;
+    }
+  }
+
+  .social-icons {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+
+    @media (max-width: $breakpoint-mobile) {
+      gap: 1.5rem;
+    }
+  }
+</style>
