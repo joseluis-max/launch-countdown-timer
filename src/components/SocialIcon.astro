@@ -1,0 +1,39 @@
+---
+interface Props {
+  href: string;
+  label: string;
+  icon: ImageMetadata;
+  alt: string;
+}
+
+const { href, label, icon, alt } = Astro.props;
+---
+
+<a href={href} aria-label={label}>
+  <img src={icon.src} alt={alt} />
+</a>
+
+<style lang="scss">
+  @import '../styles/variables';
+
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: filter 0.3s ease;
+
+    &:hover {
+      filter: brightness(0) saturate(100%) invert(66%) sepia(51%) saturate(5555%) hue-rotate(318deg) brightness(101%) contrast(92%);
+    }
+
+    img {
+      width: 24px;
+      height: 24px;
+
+      @media (max-width: $breakpoint-mobile) {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+</style>
